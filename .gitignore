@@ -33,3 +33,6 @@ ui_*.h
 # OS files
 .DS_Store
 Thumbs.db
+
+.qtcreator
+.vscode
