@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="black"
+>
+    <path d="M14 3v11.55A2.5 2.5 0 1 0 16 17V7h4V3h-6z"/>
+    <path d="M4 9h3V6h2v3h3v2H9v3H7v-3H4z"/>
+</svg>

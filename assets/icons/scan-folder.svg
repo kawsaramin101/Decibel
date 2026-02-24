@@ -1,0 +1,24 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Folder base -->
+  <path d="M64 160
+           Q64 128 96 128
+           H200
+           L240 96
+           H416
+           Q448 96 448 128
+           V384
+           Q448 416 416 416
+           H96
+           Q64 416 64 384
+           Z"
+        fill="black"/>
+
+  <!-- Scanner beam -->
+  <rect x="120" y="240" width="272" height="12" fill="white" opacity="0.9"/>
+
+  <!-- Scan frame corners -->
+  <path d="M140 200 V170 H170" stroke="white" stroke-width="12" fill="none"/>
+  <path d="M372 200 V170 H342" stroke="white" stroke-width="12" fill="none"/>
+  <path d="M140 312 V342 H170" stroke="white" stroke-width="12" fill="none"/>
+  <path d="M372 312 V342 H342" stroke="white" stroke-width="12" fill="none"/>
+</svg>

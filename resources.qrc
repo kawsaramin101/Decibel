@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>assets/icons/play.svg</file>
+        <file>assets/icons/pause.svg</file>
+        <file>assets/icons/seek-forward.svg</file>
+        <file>assets/icons/seek-backward.svg</file>
+        <file>assets/icons/play-next.svg</file>
+        <file>assets/icons/play-previous.svg</file>
+        <file>assets/icons/scan-folder.svg</file>
+        <file>resources.qrc</file>
+        <file>assets/icons/add-songs-white.svg</file>
+        <file>assets/icons/add-songs-black.svg</file>
+    </qresource>
+</RCC>

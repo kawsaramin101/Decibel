@@ -1,0 +1,5 @@
+module QML
+
+Main 1.0 Main.qml
+TopBox 1.0 TopBox.qml
+BottomBox 1.0 BottomBox.qml
