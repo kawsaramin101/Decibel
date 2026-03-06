@@ -36,3 +36,6 @@ Thumbs.db
 
 .qtcreator
 .vscode
+.cache 
+.kateproject.build
+.main.cpp.kate-swp
