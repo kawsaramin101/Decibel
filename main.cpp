@@ -5,8 +5,12 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 
+
+
 int main(int argc, char *argv[]) {
   QApplication app(argc, argv);
+
+  app.setWindowIcon(QIcon(":/assets/icons/app-icon.svg"));
 
   // Set application metadata
   QCoreApplication::setApplicationName("Decibel");

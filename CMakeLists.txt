@@ -10,6 +10,8 @@ set(CMAKE_AUTORCC ON)
 
 find_package(Qt6 REQUIRED COMPONENTS Quick Sql Multimedia Widgets)
 
+
+
 qt_standard_project_setup(REQUIRES 6.8)
 
 qt_add_executable(appDecibel
@@ -45,6 +47,7 @@ target_link_libraries(appDecibel
         Qt6::Sql
         Qt6::Multimedia
         Qt6::Widgets
+
 )
 
 include(GNUInstallDirs)

@@ -10,5 +10,7 @@
         <file>resources.qrc</file>
         <file>assets/icons/add-songs-white.svg</file>
         <file>assets/icons/add-songs-black.svg</file>
+        <file>assets/icons/shuffle.svg</file>
+        <file>assets/icons/app-icon.svg</file>
     </qresource>
 </RCC>

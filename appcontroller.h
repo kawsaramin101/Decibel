@@ -4,13 +4,15 @@
 #include "database.h"
 #include "models.h"
 #include <QAudioOutput>
+#include <QFileInfo>
 #include <QList>
 #include <QMediaPlayer>
 #include <QObject>
 #include <QString>
 #include <QVariant>
-#include <QFileInfo>
 
+enum class RepeatMode { None, One, All };
+enum class ShuffleMode { Off, On };
 
 class AppController : public QObject {
   Q_OBJECT
@@ -38,7 +40,6 @@ public:
   explicit AppController(QObject *parent = nullptr);
   ~AppController();
 
-  // Property getters
   QList<QObject *> playlists();
   QList<QObject *> songs();
   Playlist *selectedPlaylist();
@@ -50,6 +51,9 @@ public:
   bool isPlaying();
   qint64 position();
   qint64 duration();
+
+  QString getFromStorage(const QString &key);
+  void setInStorage(const QString &key, const QString &value);
 
 signals:
   void playlistsChanged();
@@ -77,6 +81,8 @@ public slots:
   void addPlaylist(const QString &name);
   void deletePlaylist(int playlistId);
   void removeSong(int songId);
+  void toggleRepeatMode();
+  void toggleShuffleMode();
 
 private:
   void loadPlaylists();
@@ -110,6 +116,26 @@ private:
 
   qint64 m_pendingSeekPosition;
   QString m_appDataFilePath;
+
+  RepeatMode m_repeatMode = RepeatMode::None;
+  ShuffleMode m_shuffleMode = ShuffleMode::Off;
+
+  struct StorageField {
+    QString key;
+    QString value;
+  };
+
+  QList<StorageField> m_storage = {
+      {"current_playing_song_id", "-1"},
+      {"selected_playlist_id", "-1"},
+      {"current_playing_song_last_position", "-1"},
+      {"current_playing_playlist_id", "-1"},
+      {"shuffle", "false"},
+      {"repeat_type", "none"},
+  };
+
+  void loadLocalStorage();
+  void saveLocalStorage();
 };
 
 #endif // APPCONTROLLER_H

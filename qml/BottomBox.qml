@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import Qt5Compat.GraphicalEffects
 
 Pane {
     padding: 16
@@ -52,60 +53,97 @@ Pane {
         }
 
         // Play/Pause button
-        RowLayout {
+        Item {
             Layout.fillWidth: true
-            Layout.alignment: Qt.AlignHCenter
-            
-            Button {
-                icon.source: "qrc:/assets/icons/play-previous.svg"
-                icon.width: 22
-                icon.height: 22
+            height: leftButtons.height
 
-                flat: true
-                Layout.preferredWidth: implicitHeight
-                enabled: backend.currentSongName !== ""
-                onClicked: backend.playPreviousSong()
-            }
-            Button {
-                icon.source: "qrc:/assets/icons/seek-backward.svg"
-                icon.width: 22
-                icon.height: 22
+            Row {
+                id: leftButtons
+                anchors.left: parent.left
+                anchors.verticalCenter: parent.verticalCenter
+                Button {
+                    text: "R"
+                    width: height
+                    flat: true
+                    onClicked: backend.toggleRepeatMode()
+                }
 
-                flat: true
-                Layout.preferredWidth: implicitHeight
-                enabled: backend.currentSongName !== ""
-                onClicked: backend.seekBack()
+                Button {
+                   text: "S"
+                   width: height
+                   flat: true
+                   onClicked: backend.toggleShuffleMode()
+                }
             }
-            Button {
-                icon.source: backend.isPlaying ? "qrc:/assets/icons/pause.svg" : "qrc:/assets/icons/play.svg"
-                icon.width: 22
-                icon.height: 22
-                icon.color: palette.buttonText  // ADD THIS
-                flat: true
-                Layout.preferredWidth: implicitHeight
-                enabled: backend.currentSongName !== ""
-                onClicked: backend.togglePlayPause()
-            }
-            Button {
-                icon.source: "qrc:/assets/icons/seek-forward.svg"
-                icon.width: 22
-                icon.height: 22
-                icon.color: palette.buttonText  // ADD THIS
-                flat: true
-                Layout.preferredWidth: implicitHeight
-                enabled: backend.currentSongName !== ""
-                onClicked: backend.seekNext()
-            }
-            Button {
-                icon.source: "qrc:/assets/icons/play-next.svg"
-                icon.width: 22
-                icon.height: 22
-                icon.color: palette.buttonText  // ADD THIS
-                flat: true
-                Layout.preferredWidth: implicitHeight
-                enabled: backend.currentSongName !== ""
-                onClicked: backend.playNextSong()
-            }
+
+
+            Row {
+                   anchors.centerIn: parent
+                   Button {
+                       icon.source: "qrc:/assets/icons/play-previous.svg"
+                       icon.width: 22
+                       icon.height: 22
+
+                       flat: true
+                       Layout.preferredWidth: implicitHeight
+                       enabled: backend.currentSongName !== ""
+                       onClicked: backend.playPreviousSong()
+                   }
+                   Button {
+                       icon.source: "qrc:/assets/icons/seek-backward.svg"
+                       icon.width: 22
+                       icon.height: 22
+
+                       flat: true
+                       Layout.preferredWidth: implicitHeight
+                       enabled: backend.currentSongName !== ""
+                       onClicked: backend.seekBack()
+                   }
+                   Button {
+                       icon.source: backend.isPlaying ? "qrc:/assets/icons/pause.svg" : "qrc:/assets/icons/play.svg"
+                       icon.width: 22
+                       icon.height: 22
+                       icon.color: palette.buttonText  // ADD THIS
+                       flat: true
+                       Layout.preferredWidth: implicitHeight
+                       enabled: backend.currentSongName !== ""
+                       onClicked: backend.togglePlayPause()
+                   }
+                   Button {
+                       icon.source: "qrc:/assets/icons/seek-forward.svg"
+                       icon.width: 22
+                       icon.height: 22
+                       icon.color: palette.text
+                       flat: true
+                       Layout.preferredWidth: implicitHeight
+                       enabled: backend.currentSongName !== ""
+                       onClicked: backend.seekNext()
+
+
+                   }
+                   Button {
+                       icon.source: "qrc:/assets/icons/play-next.svg"
+                       icon.width: 22
+                       icon.height: 22
+                       icon.color: palette.text
+                       flat: true
+                       Layout.preferredWidth: implicitHeight
+                       enabled: backend.currentSongName !== ""
+                       onClicked: backend.playNextSong()
+                   }
+
+                   }
+
+
+            Row {
+                    anchors.right: parent.right
+                    anchors.verticalCenter: parent.verticalCenter
+                    Button {
+                        text: "Settings"
+                    }
+                }
+
+
         }
     }
 
