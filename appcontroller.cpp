@@ -7,6 +7,7 @@
 #include <QStandardPaths>
 #include <QTextStream>
 #include <QUrl>
+#include <iostream>
 #include <qobject.h>
 #include <string>
 
@@ -156,6 +157,9 @@ qint64 AppController::duration() {
   }
   return m_player->duration();
 }
+
+RepeatMode AppController::repeatMode() { return m_repeatMode; }
+ShuffleMode AppController::shuffleMode() { return m_shuffleMode; }
 
 void AppController::selectPlaylist(Playlist *playlist) {
   if (!playlist)
@@ -403,14 +407,18 @@ void AppController::toggleRepeatMode() {
   QString value = m_repeatMode == RepeatMode::None  ? "none"
                   : m_repeatMode == RepeatMode::All ? "all"
                                                     : "one";
-  saveToLocalStorage("repeat_type", value);
+
+  emit repeatModeChanged();
+  emit shuffleModeChanged();
+  setInStorage("repeat_type", value);
 }
 
 void AppController::toggleShuffleMode() {
   m_shuffleMode =
       m_shuffleMode == ShuffleMode::Off ? ShuffleMode::On : ShuffleMode::Off;
-  saveToLocalStorage("shuffle",
-                     m_shuffleMode == ShuffleMode::On ? "true" : "false");
+  emit repeatModeChanged();
+  emit shuffleModeChanged();
+  setInStorage("shuffle", m_shuffleMode == ShuffleMode::On ? "true" : "false");
 }
 
 void AppController::onMediaStatusChanged(QMediaPlayer::MediaStatus status) {
@@ -423,7 +431,15 @@ void AppController::onMediaStatusChanged(QMediaPlayer::MediaStatus status) {
   }
 
   if (status == QMediaPlayer::EndOfMedia) {
-    playNextSong();
+
+    if (m_repeatMode == RepeatMode::One) {
+      std::cout << "Run here" << std::endl;
+
+      setSongAndPlay(m_currentPlayingSong, m_currentPlayingPlaylist);
+    } else if (m_repeatMode == RepeatMode::All) {
+      playNextSong();
+    } else {
+    }
   }
 }
 

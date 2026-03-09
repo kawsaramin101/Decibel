@@ -5,7 +5,9 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 
-
+// Easy one liner for me
+// find . \( -name "*.cpp" -o -name "*.h" -o -name "*.qml" -o -name "*.svg" \) |
+// \ entr -r sh -c 'cmake --build build && ./build/appDecibel'
 
 int main(int argc, char *argv[]) {
   QApplication app(argc, argv);

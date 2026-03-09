@@ -35,6 +35,8 @@ class AppController : public QObject {
   Q_PROPERTY(bool isPlaying READ isPlaying NOTIFY playbackStateChanged)
   Q_PROPERTY(qint64 position READ position NOTIFY positionChanged)
   Q_PROPERTY(qint64 duration READ duration NOTIFY durationChanged)
+  Q_PROPERTY(RepeatMode repeatMode READ repeatMode NOTIFY repeatModeChanged)
+  Q_PROPERTY(ShuffleMode shuffleMode READ shuffleMode NOTIFY shuffleModeChanged)
 
 public:
   explicit AppController(QObject *parent = nullptr);
@@ -54,6 +56,8 @@ public:
 
   QString getFromStorage(const QString &key);
   void setInStorage(const QString &key, const QString &value);
+  RepeatMode repeatMode();
+  ShuffleMode shuffleMode();
 
 signals:
   void playlistsChanged();
@@ -64,6 +68,8 @@ signals:
   void playbackStateChanged();
   void positionChanged();
   void durationChanged();
+  void repeatModeChanged();
+  void shuffleModeChanged();
 
 public slots:
   void cleanup();

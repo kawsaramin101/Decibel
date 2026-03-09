@@ -1,16 +1,32 @@
 <RCC>
     <qresource prefix="/">
-        <file>assets/icons/play.svg</file>
-        <file>assets/icons/pause.svg</file>
-        <file>assets/icons/seek-forward.svg</file>
-        <file>assets/icons/seek-backward.svg</file>
-        <file>assets/icons/play-next.svg</file>
-        <file>assets/icons/play-previous.svg</file>
-        <file>assets/icons/scan-folder.svg</file>
         <file>resources.qrc</file>
         <file>assets/icons/add-songs-white.svg</file>
         <file>assets/icons/add-songs-black.svg</file>
         <file>assets/icons/shuffle.svg</file>
         <file>assets/icons/app-icon.svg</file>
+        <file>assets/icons/pause-white.svg</file>
+        <file>assets/icons/play-white.svg</file>
+        <file>assets/icons/play-next-white.svg</file>
+        <file>assets/icons/seek-forward-white.svg</file>
+        <file>assets/icons/seek-backward-white.svg</file>
+        <file>assets/icons/play-previous-white.svg</file>
+        <file>assets/icons/shuffle-off-dark.svg</file>
+        <file>assets/icons/shuffle-on-dark.svg</file>
+        <file>assets/icons/shuffle-on-light.svg</file>
+        <file>assets/icons/play-previous-black.svg</file>
+        <file>assets/icons/play-next-black.svg</file>
+        <file>assets/icons/pause-black.svg</file>
+        <file>assets/icons/seek-forward-black.svg</file>
+        <file>assets/icons/seek-backward-black.svg</file>
+        <file>assets/icons/scan-folder-white.svg</file>
+        <file>assets/icons/scan-folder-black.svg</file>
+        <file>assets/icons/play-black.svg</file>
+        <file>assets/icons/repeat-white.svg</file>
+        <file>assets/icons/repeat-one-white.svg</file>
+        <file>assets/icons/repeat-none-black.svg</file>
+        <file>assets/icons/repeat-black.svg</file>
+        <file>assets/icons/repeat-one-black.svg</file>
+        <file>assets/icons/repeat-none-white.svg</file>
     </qresource>
 </RCC>

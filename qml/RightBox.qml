@@ -31,9 +31,7 @@ Pane {
 
             Button {
                 text: backend.songs.length === 0 ? "Add songs" : ""
-                icon.source: Qt.styleHints.colorScheme === Qt.Dark
-                        ? "qrc:/assets/icons/add-songs-white.svg"
-                        : "qrc:/assets/icons/add-songs-black.svg"
+                icon.source: themedIcon("add-songs")
                 icon.color: palette.buttonText
                 onClicked: backend.addSongsFromFilePicker(backend.selectedPlaylistId)
                 ToolTip.visible: hovered && backend.songs.length > 0
@@ -43,7 +41,7 @@ Pane {
 
             Button {
                 text: backend.songs.length === 0 ? "Scan Folder" : ""
-                icon.source: "qrc:/assets/icons/scan-folder.svg"
+                icon.source: themedIcon("scan-folder") 
                 icon.color: palette.buttonText
                 onClicked: backend.scanFolder(backend.selectedPlaylistId)
                 ToolTip.visible: hovered && backend.songs.length > 0
@@ -169,4 +167,14 @@ Pane {
             }
         }
     }
+
+    function themedIcon(name) {
+        if (Qt.styleHints.colorScheme === Qt.Dark) {
+            return "qrc:/assets/icons/" + name + "-white.svg"
+        } else {
+            return "qrc:/assets/icons/" + name + "-black.svg"
+        }
+    }
 }
+
+

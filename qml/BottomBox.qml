@@ -62,7 +62,10 @@ Pane {
                 anchors.left: parent.left
                 anchors.verticalCenter: parent.verticalCenter
                 Button {
-                    text: "R"
+                    icon.source: backend.repeatMode === 0 ? themedIcon("repeat-none") : backend.repeatMode === 1 ? themedIcon("repeat-one") : themedIcon("repeat") 
+                       icon.width: 22
+                       icon.height: 22
+                
                     width: height
                     flat: true
                     onClicked: backend.toggleRepeatMode()
@@ -80,7 +83,7 @@ Pane {
             Row {
                    anchors.centerIn: parent
                    Button {
-                       icon.source: "qrc:/assets/icons/play-previous.svg"
+                       icon.source: themedIcon("play-previous")
                        icon.width: 22
                        icon.height: 22
 
@@ -90,7 +93,7 @@ Pane {
                        onClicked: backend.playPreviousSong()
                    }
                    Button {
-                       icon.source: "qrc:/assets/icons/seek-backward.svg"
+                       icon.source: themedIcon("seek-backward")
                        icon.width: 22
                        icon.height: 22
 
@@ -100,7 +103,7 @@ Pane {
                        onClicked: backend.seekBack()
                    }
                    Button {
-                       icon.source: backend.isPlaying ? "qrc:/assets/icons/pause.svg" : "qrc:/assets/icons/play.svg"
+                       icon.source: backend.isPlaying ? themedIcon("pause") : themedIcon("play")
                        icon.width: 22
                        icon.height: 22
                        icon.color: palette.buttonText  // ADD THIS
@@ -110,7 +113,7 @@ Pane {
                        onClicked: backend.togglePlayPause()
                    }
                    Button {
-                       icon.source: "qrc:/assets/icons/seek-forward.svg"
+                       icon.source: themedIcon("seek-forward")
                        icon.width: 22
                        icon.height: 22
                        icon.color: palette.text
@@ -122,7 +125,7 @@ Pane {
 
                    }
                    Button {
-                       icon.source: "qrc:/assets/icons/play-next.svg"
+                        icon.source: themedIcon("play-next")
                        icon.width: 22
                        icon.height: 22
                        icon.color: palette.text
@@ -152,5 +155,13 @@ Pane {
         const minutes = Math.floor(seconds / 60);
         seconds = seconds % 60;
         return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+    }
+
+    function themedIcon(name) {
+        if (Qt.styleHints.colorScheme === Qt.Dark) {
+            return "qrc:/assets/icons/" + name + "-white.svg"
+        } else {
+            return "qrc:/assets/icons/" + name + "-black.svg"
+        }
     }
 }
