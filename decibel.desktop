@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Decibel
+Comment=Simple music player
+Exec=appDecibel
+Icon=decibel
+Type=Application
+Categories=Audio;Music;Player;

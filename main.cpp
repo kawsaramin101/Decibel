@@ -9,6 +9,16 @@
 // find . \( -name "*.cpp" -o -name "*.h" -o -name "*.qml" -o -name "*.svg" \) |
 // \ entr -r sh -c 'cmake --build build && ./build/appDecibel'
 
+// todo : add check for existing song matching new song when scanning
+// folder/adding song
+// todo : set playlist from localstorage on init
+// todo : implement search
+// todo : implement shuffle
+// todo : implement setting and about
+// todo : reduce cpu usage due to heavy ui updating on timer when a song playing
+// todo : fix bug song playing twice for a short time when seek
+// todo : better indicator to show which song and playlist is playing
+
 int main(int argc, char *argv[]) {
   QApplication app(argc, argv);
 
